@@ -15,13 +15,13 @@ public class UserResource {
 
     @GetMapping(value = "/{email}")
     public ResponseEntity<User> findByEmail(@PathVariable String email) {
-        User worker = repository.findByEmail(email);
-        return ResponseEntity.ok(worker);
+        User user = repository.findByEmail(email);
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping(value = "/search")
     public ResponseEntity<User> searchByEmail(@RequestParam String email) {
-        User worker = repository.findByEmail(email);
-        return ResponseEntity.ok(worker);
+        User user = repository.findByEmail(email);
+        return ResponseEntity.ok(user);
     }
 }
