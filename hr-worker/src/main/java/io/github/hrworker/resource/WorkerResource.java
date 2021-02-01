@@ -30,7 +30,6 @@ public class WorkerResource {
 
     @GetMapping(value = "/configs")
     public ResponseEntity<List<Worker>> getConfigs() {
-        logger.info("CONFIG = " + env.getProperty("test.config"));
         return ResponseEntity.noContent().build();
     }
 
@@ -42,16 +41,6 @@ public class WorkerResource {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {
-
-        /*
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Teste de latência entre Ribbon e Hystrix
-         */
-
         logger.info("PORT = "+ env.getProperty("local.server.port"));
 
         Worker worker = repository.findById(id).get();
